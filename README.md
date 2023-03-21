@@ -20,6 +20,8 @@ flutter pub add matches
 
 ## Usage
 
+### Result
+
 ```dart
 Result<int> result = Pending<int>();
 
@@ -30,7 +32,7 @@ await Future.delayed(Duration(seconds: 1));
 result = Success(42)
 ```
 
-Dart 2
+Dart 2 usage
 
 ```dart
 if (result is Loading) {
@@ -44,17 +46,38 @@ if (result is Loading) {
 }
 ```
 
-Dart 3
+Dart 3 usage
 
 ```dart
 final child = switch (result) {
   Success(value: var v) => Text('The number is $v'),
-  Loading(value: var p) => LinearProgressIndicator(value: p),
-  Failure(value: var e) => Text('Error: ${e.toString()}')
-  _ => SizedBox()
+  Loading(progress: var p) => LinearProgressIndicator(value: p),
+  Failure(exception: var e) => Text('Error: ${e.toString()}'),
+  _ => const SizedBox()
 };
 
 ```
+
+### ComparisonResult
+
+Dart 3 usage
+
+```dart
+final random = Random();
+
+final a = random.nextInt(10);
+final b = random.nextInt(10);
+
+final msg = switch (a.compare(b)) {
+  Greater(difference: var d) => 'a is greater than b by $d',
+  Less(difference: var d) => 'a is less than b by $d',
+  Equal _ => 'a and b are equal',
+};
+
+print(msg);
+```
+
+`compare` method is available on `int`, `double`, `num`, `String`, `Date` via extension.
 
 [![GitHub stars](https://img.shields.io/github/stars/lesnitsky/matches.svg?style=social&hash=20230321)](https://github.com/lesnitsky/matches)
 [![Twitter Follow](https://img.shields.io/twitter/follow/lesnitsky_dev.svg?label=Follow%20me&style=social)](https://twitter.com/lesnitsky_dev)
