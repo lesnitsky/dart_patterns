@@ -3,7 +3,16 @@
 A Future-proof package with utility classes that are useful already,
 but will become even more useful when Dart 3 arrives.
 
+[![GitHub stars](https://img.shields.io/github/stars/lesnitsky/matches.svg?style=social)](https://github.com/lesnitsky/matches)
+[![Twitter Follow](https://img.shields.io/twitter/follow/lesnitsky_dev.svg?label=Follow%20me&style=social)](https://twitter.com/intent/follow?user_id=2615671640)
+
 ## Installation
+
+```sh
+dart pub add matches
+```
+
+or
 
 ```sh
 flutter pub add matches
@@ -26,8 +35,12 @@ Dart 2
 ```dart
 if (result is Loading) {
     return LinearProgressIndicator(value: result.loading().progress);
-} else if (result is Success<int>) {
+} else if (result is Success) {
     return Text('The number is ${result.success().value}')
+} else if (result is Failure) {
+    return Text('Error: ${result.failure().exception}')
+} else {
+    return SizedBox();
 }
 ```
 
@@ -42,6 +55,9 @@ final child = switch (result) {
 };
 
 ```
+
+[![GitHub stars](https://img.shields.io/github/stars/lesnitsky/flutter_localstorage.svg?style=social)](https://github.com/lesnitsky/flutter_localstorage)
+[![Twitter Follow](https://img.shields.io/twitter/follow/lesnitsky_dev.svg?label=Follow%20me&style=social)](https://twitter.com/lesnitsky_dev)
 
 ## LICENSE
 
