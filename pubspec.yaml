@@ -1,5 +1,5 @@
 name: matches
-description: A sample command-line application.
+description: Utility classes that are useful already, but will become even more useful when Dart 3 arrives
 version: 0.0.1
 repository: https://github.com/lesnitsky/matches
 
