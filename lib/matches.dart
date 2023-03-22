@@ -29,26 +29,26 @@ class Success<T> extends Result<T> {
   const Success(this.value);
 }
 
-abstract class ComparisonResult<T> {
-  const ComparisonResult();
+abstract class Ordering<T> {
+  const Ordering();
 }
 
-class Greater<T> extends ComparisonResult<T> {
+class Greater<T> extends Ordering<T> {
   final T difference;
   const Greater(this.difference);
 }
 
-class Less<T> extends ComparisonResult<T> {
+class Less<T> extends Ordering<T> {
   final T difference;
   const Less(this.difference);
 }
 
-class Equal<T> extends ComparisonResult<T> {
+class Equal<T> extends Ordering<T> {
   const Equal();
 }
 
-extension IntComparison on int {
-  ComparisonResult<int> compare(int other) {
+extension IntOrdering on int {
+  Ordering<int> compare(int other) {
     final difference = this - other;
 
     if (difference > 0) {
@@ -61,8 +61,8 @@ extension IntComparison on int {
   }
 }
 
-extension DoubleComparison on double {
-  ComparisonResult<double> compare(double other) {
+extension DoubleOrdering on double {
+  Ordering<double> compare(double other) {
     final difference = this - other;
 
     if (difference > 0) {
@@ -75,8 +75,8 @@ extension DoubleComparison on double {
   }
 }
 
-extension NumbleComparison on num {
-  ComparisonResult<num> compare(num other) {
+extension NumbleOrdering on num {
+  Ordering<num> compare(num other) {
     final difference = this - other;
 
     if (difference > 0) {
@@ -89,8 +89,8 @@ extension NumbleComparison on num {
   }
 }
 
-extension StringComparison on String {
-  ComparisonResult<void> compare(String other) {
+extension StringOrdering on String {
+  Ordering<void> compare(String other) {
     final difference = compareTo(other);
 
     if (difference > 0) {
@@ -103,8 +103,8 @@ extension StringComparison on String {
   }
 }
 
-extension DateTimeComparison on DateTime {
-  ComparisonResult<Duration> compare(DateTime other) {
+extension DateTimeOrdering on DateTime {
+  Ordering<Duration> compare(DateTime other) {
     final difference = this.difference(other);
 
     if (difference > Duration.zero) {

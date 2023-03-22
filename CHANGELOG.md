@@ -1,3 +1,7 @@
+## 0.1.0+4
+
+- `ComparisonResult` -> `Ordering`
+
 ## 0.0.2+3
 
 - `ComparisonResult` added
