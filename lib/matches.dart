@@ -133,8 +133,11 @@ class Nothing<T> extends Maybe<T> {
   const Nothing();
 }
 
-abstract class Either {
+abstract class Either<T, K> {
   const Either();
+
+  Left<T> left() => this as Left<T>;
+  Right<K> right() => this as Right<K>;
 }
 
 class Left<L> extends Either {
