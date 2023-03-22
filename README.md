@@ -103,6 +103,30 @@ switch (a) {
 }
 ```
 
+### Either
+
+Dart 2 usage
+
+```dart
+final Either<int, String> a = Left(42);
+final Either<int, String> b = Right('42');
+
+if (a is Left) {
+  print(a.left().value);
+} else {
+  print(a.right().value);
+}
+```
+
+Dart 3 usage
+
+```dart
+switch (a) {
+  case Left(value: final v): print(v);
+  case Right(value: final v): print(v);
+}
+```
+
 [![GitHub stars](https://img.shields.io/github/stars/lesnitsky/matches.svg?style=social&hash=20230321)](https://github.com/lesnitsky/matches)
 [![Twitter Follow](https://img.shields.io/twitter/follow/lesnitsky_dev.svg?label=Follow%20me&style=social)](https://twitter.com/lesnitsky_dev)
 

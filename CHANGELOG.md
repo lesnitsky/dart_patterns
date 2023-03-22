@@ -1,3 +1,7 @@
+## 0.1.2+6
+
+- `Either` added
+
 ## 0.1.1+5
 
 - `Maybe` added

@@ -132,3 +132,19 @@ class Just<T> extends Maybe<T> {
 class Nothing<T> extends Maybe<T> {
   const Nothing();
 }
+
+abstract class Either {
+  const Either();
+}
+
+class Left<L> extends Either {
+  final L value;
+
+  const Left(this.value);
+}
+
+class Right<R> extends Either {
+  final R value;
+
+  const Right(this.value);
+}
