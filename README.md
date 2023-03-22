@@ -79,6 +79,30 @@ print(msg);
 
 `compare` method is available on `int`, `double`, `num`, `String`, `Date` via extension.
 
+### Maybe
+
+Dart 2 usage
+
+```dart
+final Maybe<int> a = Just(42);
+final Maybe<int> b = Nothing();
+
+if (a is Just) {
+  print(a.just().value);
+} else {
+  print('nothing')
+}
+```
+
+Dart 3 usage
+
+```dart
+switch (a) {
+  case Just(value: final v): print(v);
+  case Nothing: print('nothing');
+}
+```
+
 [![GitHub stars](https://img.shields.io/github/stars/lesnitsky/matches.svg?style=social&hash=20230321)](https://github.com/lesnitsky/matches)
 [![Twitter Follow](https://img.shields.io/twitter/follow/lesnitsky_dev.svg?label=Follow%20me&style=social)](https://twitter.com/lesnitsky_dev)
 

@@ -116,3 +116,19 @@ extension DateTimeOrdering on DateTime {
     }
   }
 }
+
+abstract class Maybe<T> {
+  const Maybe();
+
+  Just<T> just() => this as Just<T>;
+}
+
+class Just<T> extends Maybe<T> {
+  final T value;
+
+  const Just(this.value);
+}
+
+class Nothing<T> extends Maybe<T> {
+  const Nothing();
+}
