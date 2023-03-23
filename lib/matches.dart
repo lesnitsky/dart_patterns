@@ -151,3 +151,30 @@ class Right<R> extends Either {
 
   const Right(this.value);
 }
+
+abstract class These<T, K> {
+  const These();
+
+  This<T> getThis() => this as This<T>;
+  That<K> getThat() => this as That<K>;
+  Both<T, K> getBoth() => this as Both<T, K>;
+}
+
+class This<T> extends These {
+  final T value;
+
+  const This(this.value);
+}
+
+class That<K> extends These {
+  final K value;
+
+  const That(this.value);
+}
+
+class Both<T, K> extends These<T, K> {
+  final T a;
+  final K b;
+
+  Both(this.a, this.b);
+}

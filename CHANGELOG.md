@@ -1,3 +1,7 @@
+## 0.1.4+8
+
+- `These` added
+
 ## 0.1.3+7
 
 - make `Either` typed (`Either<T, K>`)

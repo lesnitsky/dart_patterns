@@ -127,6 +127,23 @@ switch (a) {
 }
 ```
 
+### These
+
+Dart 3 usage
+
+```dart
+switch (user) {
+  case Both<User, Admin>(a: final customer, b: final admin): {
+    applyAdminCoupon(admin.employeId);
+  }
+  case This<User>(value: final user): {
+    verifyHasValidPaymentMethod(user)
+  };
+}
+
+checkout();
+```
+
 [![GitHub stars](https://img.shields.io/github/stars/lesnitsky/matches.svg?style=social&hash=20230321)](https://github.com/lesnitsky/matches)
 [![Twitter Follow](https://img.shields.io/twitter/follow/lesnitsky_dev.svg?label=Follow%20me&style=social)](https://twitter.com/lesnitsky_dev)
 
