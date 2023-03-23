@@ -18,6 +18,8 @@ or
 flutter pub add matches
 ```
 
+If you're using Dart 3 already – feel free to use a pre-release version `1.0.0-dev`
+
 ## Usage
 
 ### Result
@@ -58,7 +60,7 @@ final child = switch (result) {
 
 ```
 
-### ComparisonResult
+### Ordering
 
 Dart 3 usage
 
