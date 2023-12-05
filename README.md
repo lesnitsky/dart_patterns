@@ -117,6 +117,13 @@ r.forEach((r) {
 });
 ```
 
+### Experimental
+
+- [Maybe](https://pub.dev/documentation/dart_patterns/latest/expermiental/Maybe-class.html)
+- [Ordering](https://pub.dev/documentation/dart_patterns/latest/expermiental/Ordering-class.html)
+- [Either](https://pub.dev/documentation/dart_patterns/latest/expermiental/Either-class.html)
+- [These](https://pub.dev/documentation/dart_patterns/latest/expermiental/These-class.html)
+
 ## LICENSE
 
 Copyright 2023 Andrei Lesnitsky
