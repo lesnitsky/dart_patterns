@@ -7,7 +7,115 @@ Collection of useful patterns for Dart
 
 ## Documentation
 
-See [API reference](https://pub.dev/documentation/dart_patterns/latest/)
+### Result
+
+```dart
+final r = R.guard(() {
+  final v = random.nextInt(2);
+  if (v == 0) throw Exception('error');
+  return v;
+})
+
+switch (r) {
+  case Success(value: final v):
+    print(v);
+  case Failure(error: final e, stackTrace: final stackTrace):
+    print(e);
+    print(stackTrace);
+}
+```
+
+### LateResult
+
+```dart
+final r = Late.fromStream(() async* {
+  await Future.delayed(Duration(seconds: 1));
+  final v = random.nextInt(2);
+  if (v == 0) throw Exception('error');
+  yield v;
+})
+
+r.forEach((r) {
+  switch (r) {
+    case Pending:
+      print('no values recieved yet');
+    case Success(value: final v):
+      print(v);
+    case Failure(error: final e, stackTrace: final stackTrace):
+      print(e);
+      print(stackTrace);
+  }
+});
+
+```
+
+### AsyncResult
+
+```dart
+final r = await Async.asStream(() async {
+  await Future.delayed(Duration(seconds: 1));
+  final v = random.nextInt(2);
+  if (v == 0) throw Exception('error');
+  return v;
+});
+
+stream.forEach((r) {
+  switch (r) {
+    case Loading:
+      print('loading');
+    case Success(value: final v):
+      print(v);
+    case Failure(error: final e, stackTrace: final stackTrace):
+      print(e);
+      print(stackTrace);
+  }
+});
+```
+
+### LateAsyncResult
+
+```dart
+final client = HttpClient();
+
+final r = (() async* {
+  yield LateAsync.pending();
+
+  try {
+    final req = await client.openUrl('GET', Uri.parse('https://example.com'));
+    yield LateAsync.loading();
+
+    final res = await req.close();
+    final contentLength = res.contentLength;
+
+    var received = 0;
+    var sb = StringBuffer();
+
+    await for (final chunk in res.transform(Utf8Decoder())) {
+      received += chunk.length;
+      yield LateAsync.loading(received / contentLength);
+      sb.write(chunk);
+    }
+
+    yield LateAsync.success(sb.toString());
+  } catch (e, stackTrace) {
+    yield LateAsync.failure(e, stackTrace);
+  }
+})()
+
+r.forEach((r) {
+  switch (r) {
+    case Pending:
+      print('connection not established yet');
+    case Loading(progress: final progress):
+      print('loading: $progress');
+    case Success(value: final v):
+      print(v);
+    case Failure(error: final e, stackTrace: final stackTrace):
+      print(e);
+      print(stackTrace);
+  }
+});
+```
 
 ## LICENSE
 
