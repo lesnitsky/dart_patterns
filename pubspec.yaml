@@ -1,6 +1,6 @@
 name: dart_patterns
 description: Collection of useful patterns for Dart
-version: 0.2.0
+version: 0.2.1
 repository: https://github.com/lesnitsky/dart_patterns
 
 environment:

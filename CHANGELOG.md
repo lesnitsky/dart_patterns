@@ -1,3 +1,7 @@
+## 0.2.1
+
+- Drop constructors for base classes for better analyzer fix.
+
 ## 0.2.0
 
 - Added `Late`, `Async`, and `LateAsync`.

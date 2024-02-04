@@ -4,8 +4,6 @@ typedef Async<T> = AsyncResult<T>;
 typedef LateAsync<T> = LateAsyncResult<T>;
 
 sealed class Result<T> {
-  const Result();
-
   /// Creates a [Success] result.
   const factory Result.success(T value) = Success<T>._;
 
@@ -28,8 +26,6 @@ sealed class Result<T> {
 }
 
 sealed class LateResult<T> {
-  const LateResult();
-
   const factory LateResult.pending() = Pending<T>._;
   const factory LateResult.success(T value) = Success<T>._;
   const factory LateResult.failure([
@@ -51,8 +47,6 @@ sealed class LateResult<T> {
 }
 
 sealed class AsyncResult<T> {
-  const AsyncResult();
-
   /// Creates a [Success] result.
   const factory AsyncResult.success(T value) = Success<T>._;
 
@@ -83,8 +77,6 @@ sealed class AsyncResult<T> {
 }
 
 class LateAsyncResult<T> {
-  const LateAsyncResult();
-
   const factory LateAsyncResult.pending() = Pending<T>._;
   const factory LateAsyncResult.success(T value) = Success<T>._;
   const factory LateAsyncResult.failure([
