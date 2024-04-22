@@ -76,7 +76,7 @@ sealed class AsyncResult<T> {
   }
 }
 
-class LateAsyncResult<T> {
+sealed class LateAsyncResult<T> {
   const factory LateAsyncResult.pending() = Pending<T>._;
   const factory LateAsyncResult.success(T value) = Success<T>._;
   const factory LateAsyncResult.failure([
