@@ -1,3 +1,7 @@
+## 0.3.0
+
+- Seal `LateAsyncResult` for better exhaustiveness checking.
+
 ## 0.2.1
 
 - Drop constructors for base classes for better analyzer fix.
