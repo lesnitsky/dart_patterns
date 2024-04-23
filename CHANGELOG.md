@@ -1,4 +1,8 @@
-## 0.3.1
+## 0.3.3
+
+- Revert hierarchy changes.
+
+## 0.3.2
 
 - Better hierarchy.
 
