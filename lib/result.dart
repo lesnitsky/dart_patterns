@@ -25,11 +25,11 @@ sealed class Result<T> {
   }
 }
 
-sealed class LateResult<T> implements Result<T> {
+sealed class LateResult<T> {
   const factory LateResult.pending() = Pending<T>._;
   const factory LateResult.success(T value) = Success<T>._;
   const factory LateResult.failure([
-    Object? exception,
+    Object? failure,
     StackTrace? stackTrace,
   ]) = Failure<T>._;
 
@@ -38,15 +38,15 @@ sealed class LateResult<T> implements Result<T> {
 
     try {
       await for (final value in stream) {
-        yield Success<T>._(value);
+        yield Late.success(value);
       }
     } catch (e, s) {
-      yield Failure<T>._(e, s);
+      yield Late.failure(e, s);
     }
   }
 }
 
-sealed class AsyncResult<T> implements Result<T> {
+sealed class AsyncResult<T> {
   /// Creates a [Success] result.
   const factory AsyncResult.success(T value) = Success<T>._;
 
@@ -76,7 +76,7 @@ sealed class AsyncResult<T> implements Result<T> {
   }
 }
 
-sealed class LateAsyncResult<T> implements Async<T>, Late<T> {
+sealed class LateAsyncResult<T> {
   const factory LateAsyncResult.pending() = Pending<T>._;
   const factory LateAsyncResult.success(T value) = Success<T>._;
   const factory LateAsyncResult.failure([
