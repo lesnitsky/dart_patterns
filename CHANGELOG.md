@@ -1,3 +1,7 @@
+## 0.3.1
+
+- Better hierarchy.
+
 ## 0.3.0
 
 - Seal `LateAsyncResult` for better exhaustiveness checking.
