@@ -1,3 +1,7 @@
+## 0.4.0
+
+- Drop `Pending` from `Async`
+
 ## 0.3.3
 
 - Revert hierarchy changes.

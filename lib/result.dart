@@ -101,6 +101,6 @@ final class Loading<T> implements Async<T>, LateAsync<T> {
   const Loading._([this.progress]);
 }
 
-final class Pending<T> implements Late<T>, Async<T>, LateAsync<T> {
+final class Pending<T> implements Late<T>, LateAsync<T> {
   const Pending._();
 }
